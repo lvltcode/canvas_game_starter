@@ -1,6 +1,6 @@
 # CoderSchool FTW - * Nam, the Monster Hunter *
 
-Created with love by: Charles Lee
+Created with love by: lvltcode
   
 This is a simple Canvas-based game that requires a solid understanding of the principles of JavaScript programming to customize. 
 
