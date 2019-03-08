@@ -121,7 +121,7 @@ let update = function () {
 /**
  * This function, render, runs as often as possible.
  */
-let count = 30;
+let count = 15;
 let finished = false;
 // timer interval is every second (1000 = 1s)
 let timer = setInterval(counter, 1000);
