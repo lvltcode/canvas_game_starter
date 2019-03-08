@@ -9,12 +9,8 @@ Here, we create and add our "canvas" to the page.
 We also load all of our images. 
 */
 
-
-let canvas;
-let ctx;
-
-canvas = document.createElement("canvas");
-ctx = canvas.getContext("2d");
+let canvas = document.createElement("canvas");
+let ctx = canvas.getContext("2d");
 canvas.width = 512;
 canvas.height = 480;
 document.body.appendChild(canvas);
@@ -53,12 +49,16 @@ function loadImages() {
  * 
  * The same applies to the monster.
  */
-
 let heroX = canvas.width / 2;
 let heroY = canvas.height / 2;
+let monsterX = 32 * (Math.floor(Math.random() * 10) + 6) - 16;;
+let monsterY = 32 * (Math.floor(Math.random() * 10) + 5) - 16;;
 
-let monsterX = 100;
-let monsterY = 100;
+function reset() {
+  monsterX = 32 * (Math.floor(Math.random() * 10) + 6) - 16;
+  monsterY = 32 * (Math.floor(Math.random() * 10) + 5) - 16;
+}
+
 
 /** 
  * Keyboard Listeners
@@ -86,6 +86,8 @@ function setupKeyboardListeners() {
  *  
  *  If you change the value of 5, the player will move at a different rate.
  */
+let monstersCaught = 0;
+
 let update = function () {
   if (38 in keysDown) { // Player is holding up key
     heroY -= 5;
@@ -99,7 +101,8 @@ let update = function () {
   if (39 in keysDown) { // Player is holding right key
     heroX += 5;
   }
-
+  monsterX = monsterX + Math.floor(Math.random() * (20 + 1) - 10);
+  monsterY = monsterY + Math.floor(Math.random() * (20 + 1) - 10);
   // Check if player and monster collided. Our images
   // are about 32 pixels big.
   if (
@@ -110,14 +113,37 @@ let update = function () {
   ) {
     // Pick a new location for the monster.
     // Note: Change this to place the monster at a new, random location.
-    monsterX = monsterX + 50;
-    monsterY = monsterY + 70;
+    ++monstersCaught;
+    reset();
   }
 };
 
 /**
  * This function, render, runs as often as possible.
  */
+let count = 30;
+let finished = false;
+// timer interval is every second (1000 = 1s)
+let timer = setInterval(counter, 1000);
+
+function counter(){
+  count--; // countown by 1 every second
+  // when count reaches 0 clear the timer, hide monster and
+  // hero and finish the game
+    if (count <= 0)
+    {
+      // stop the timer
+       clearInterval(counter);
+       // set game to finished
+       finished = true;
+       count = 0;
+       // hider monster and hero
+       monsterReady = false;
+       heroReady = false;
+    }
+}
+
+
 var render = function () {
   if (bgReady) {
     ctx.drawImage(bgImage, 0, 0);
@@ -128,7 +154,27 @@ var render = function () {
   if (monsterReady) {
     ctx.drawImage(monsterImage, monsterX, monsterY);
   }
+  let timeLeft = count;
+  ctx.fillStyle = 'purple';
+  ctx.font = "24px Courier New";
+  ctx.fillText("Monsters caught: " + monstersCaught, canvas.width/2-20, canvas.height-20);
+  ctx.fillText("Time: " + timeLeft, 20, canvas.height-20);
+  if(finished==true){
+    ctx.fillText("Game over!", 200, 220);
+  }
+  
+  if(monstersCaught === 5){
+    finished == true
+    ctx.fillText("You win!", 200, 220);
+    clearInterval(timer);
+    // setInterval(counter, 100000);
+    monsterReady = false;
+    heroReady = false;
+  }
+
 };
+
+
 
 /**
  * The main game loop. Most every game will have two distinct parts:
