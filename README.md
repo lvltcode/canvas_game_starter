@@ -8,6 +8,7 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 Here's a walkthrough of implemented user stories.
 
+
 ```
 <img src='http://http://g.recordit.co/cURdPMSHT2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 ```
@@ -16,7 +17,7 @@ Here's a walkthrough of implemented user stories.
 
 This code was reviewed by @username and @otherusername. 
 
-* [Link to PR #X](#) - reviewed by @username.
+* [Link to PR #X](#) - reviewed by Erik
 * [Link to PR #Y](#) - reviewed by @otherusername.   
 
 
