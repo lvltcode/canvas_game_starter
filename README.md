@@ -31,7 +31,7 @@ This code was reviewed by @username and @otherusername.
 - [x] The user can see the numbers of monsters she has caught. Every time she catches a monster, the number should increment by one. 
 - [x] The game ends when the user has caught 20 monsters. The total time elapsed is displayed upon game completion, in seconds.
 - [x] The user can access this game from the internet (e.g. using Netlify).
-- [ ] The code has been reviewed by at least one other person, using Pull Requests on GitHub.
+- [x] The code has been reviewed by at least one other person, using Pull Requests on GitHub.
 
 ## Optional User Stories
 
