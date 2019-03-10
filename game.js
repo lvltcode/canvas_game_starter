@@ -1,9 +1,3 @@
-/*
-  Code modified from:
-  http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/
-  using graphics purchased from vectorstock.com
-*/
-
 /* Initialization.
 Here, we create and add our "canvas" to the page.
 We also load all of our images. 
@@ -155,7 +149,7 @@ var render = function () {
     ctx.drawImage(monsterImage, monsterX, monsterY);
   }
   let timeLeft = count;
-  ctx.fillStyle = 'purple';
+  ctx.fillStyle = 'yellow';
   ctx.font = "24px Courier New";
   ctx.fillText("Monsters caught: " + monstersCaught, canvas.width/2-20, canvas.height-20);
   ctx.fillText("Time: " + timeLeft, 20, canvas.height-20);
@@ -165,7 +159,9 @@ var render = function () {
   
   if(monstersCaught === 5){
     finished == true
-    ctx.fillText("You win!", 200, 220);
+    ctx.fillStyle = 'white';
+    ctx.font = "36px Courier New";
+    ctx.fillText("You win!", 180, 220);
     clearInterval(timer);
     // setInterval(counter, 100000);
     monsterReady = false;
