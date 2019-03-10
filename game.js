@@ -45,6 +45,7 @@ function loadImages() {
  */
 let heroX = canvas.width / 2;
 let heroY = canvas.height / 2;
+
 let monsterX = 32 * (Math.floor(Math.random() * 10) + 6) - 16;;
 let monsterY = 32 * (Math.floor(Math.random() * 10) + 5) - 16;;
 
@@ -83,6 +84,8 @@ function setupKeyboardListeners() {
 let monstersCaught = 0;
 
 let update = function () {
+  
+
   if (38 in keysDown) { // Player is holding up key
     heroY -= 5;
   }
@@ -95,8 +98,25 @@ let update = function () {
   if (39 in keysDown) { // Player is holding right key
     heroX += 5;
   }
-  monsterX = monsterX + Math.floor(Math.random() * (20 + 1) - 10);
-  monsterY = monsterY + Math.floor(Math.random() * (20 + 1) - 10);
+
+  heroX = Math.min(canvas.width - 32, heroX);
+  heroX = Math.max(0, heroX);
+
+  heroY = Math.min(canvas.height - 32, heroY);
+  heroY = Math.max(0, heroY);
+
+  monsterX = monsterX + Math.floor(Math.random() * (60 + 1) - 30);
+  monsterY = monsterY + Math.floor(Math.random() * (60 + 1) - 30);
+
+  monsterX = Math.min(canvas.width - 32, monsterX);
+  monsterX = Math.max(0, monsterX);
+
+  monsterY = Math.min(canvas.height - 32, monsterY);
+  monsterY = Math.max(0, monsterY);
+
+  
+
+  
   // Check if player and monster collided. Our images
   // are about 32 pixels big.
   if (
@@ -108,6 +128,8 @@ let update = function () {
     // Pick a new location for the monster.
     // Note: Change this to place the monster at a new, random location.
     ++monstersCaught;
+    
+  
     reset();
   }
 };
@@ -115,7 +137,7 @@ let update = function () {
 /**
  * This function, render, runs as often as possible.
  */
-let count = 15;
+let count = 20;
 let finished = false;
 // timer interval is every second (1000 = 1s)
 let timer = setInterval(counter, 1000);
@@ -157,7 +179,7 @@ var render = function () {
     ctx.fillText("Game over!", 200, 220);
   }
   
-  if(monstersCaught === 5){
+  if(monstersCaught === 10){
     finished == true
     ctx.fillStyle = 'white';
     ctx.font = "36px Courier New";
