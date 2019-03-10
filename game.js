@@ -208,7 +208,7 @@ function winner() {
   ctx.fillText("You win!", 180, 220);
   ctx.font = "24px Courier New";
   ctx.fillText("Your score is: " + timeLeft, 140, 250);
-  clearInterval(counter);
+  clearInterval(timer);
   monsterX = 0;
   monsterY = 0;
   bgSound.stop();
