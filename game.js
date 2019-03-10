@@ -11,6 +11,7 @@ document.body.appendChild(canvas);
 
 let bgReady, heroReady, monsterReady;
 let bgImage, heroImage, monsterImage;
+let bg_sound, catch_sound;
 
 function loadImages() {
   bgImage = new Image();
@@ -34,6 +35,11 @@ function loadImages() {
   };
   monsterImage.src = "images/monster.png";
 }
+
+// fucntion loadSounds() {
+//   catch_sound = new sound("game-over.mp3");
+//   catch_sound.play();
+// }
 
 /** 
  * Setting up our characters.
@@ -129,8 +135,6 @@ let update = function () {
     // Pick a new location for the monster.
     // Note: Change this to place the monster at a new, random location.
     ++monstersCaught;
-    
-  
     reset();
   }
 };
