@@ -1,4 +1,4 @@
-# CoderSchool FTW - * Nam, the Monster Hunter *
+# CoderSchool FTW - * the Monster Hunter *
 
 Created with love by: lvltcode - link Demo - https://monster-chasing-lvlcode.netlify.com/
   
