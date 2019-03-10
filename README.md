@@ -40,7 +40,7 @@ This code was reviewed by @username and @otherusername.
 - [ ] The user sees a few different types of monster each time a new monster is spawned. 
 - [x] The monster moves around on its own each frame, and the user must chase it. 
 - [ ] The map has "obstacles", such as trees, which block the user from moving through the space occupied by the obstacle. 
-- [ ] The user can hear sound effects upon movement and upon catching a monster. 
+- [x] The user can hear sound effects upon movement and upon catching a monster. 
 - [x] The user hears background music during the game. 
 - [x] The user can see their high score. 
 
