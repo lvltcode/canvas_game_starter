@@ -1,3 +1,8 @@
+/* I am not sure if I understand the code review correctly. But I think you need to open a Pull request and assign me as 
+your code reviewer before I can review it. As this is not the case here, I will just open a Pull request on your repo and create
+a branch for your review later. 
+*/
+
 /* Initialization.
 Here, we create and add our "canvas" to the page.
 We also load all of our images. 
@@ -47,6 +52,7 @@ function loadImages() {
 let heroX = canvas.width / 2;
 let heroY = canvas.height / 2;
 
+// I don't understand why you used the numbers "10", "6",  "16" in the code below?
 let monsterX = 32 * (Math.floor(Math.random() * 10) + 6) - 16;;
 let monsterY = 32 * (Math.floor(Math.random() * 10) + 5) - 16;;
 
@@ -106,6 +112,7 @@ let update = function () {
   heroY = Math.min(canvas.height - 32, heroY);
   heroY = Math.max(0, heroY);
 
+  // I don't understand why you set a new value for monster again here?
   monsterX = monsterX + Math.floor(Math.random() * (60 + 1) - 30);
   monsterY = monsterY + Math.floor(Math.random() * (60 + 1) - 30);
 
