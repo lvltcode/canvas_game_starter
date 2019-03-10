@@ -47,7 +47,7 @@ This code was reviewed by @username and @otherusername.
 
 The following **additional** features are implemented:
 
-* [x] List anything else that you can get done to improve the page!
+- [x] The monsters move randomly and harder to catch.
 
 ## Time Spent and Lessons Learned
 
