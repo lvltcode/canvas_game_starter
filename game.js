@@ -207,13 +207,13 @@ function winner() {
   ctx.font = "36px Courier New";
   ctx.fillText("You win!", 180, 220);
   ctx.font = "24px Courier New";
-  ctx.fillText("Your score is: " + timeLeft, 140, 250);
+  ctx.fillText("Your score is: " + count, 140, 250);
   clearInterval(timer);
-  monsterX = 0;
-  monsterY = 0;
   bgSound.stop();
   catchSound.stop();
   winnerSound.play();
+  heroX = 0;
+  heroY = 0;
   monsterReady = false;
   heroReady = false;
 }
@@ -242,8 +242,7 @@ var render = function() {
 
   if (finished == true) {
     game_over();
-  }
-  else if (monstersCaught === 10) {
+  } else if (monstersCaught === 10) {
     winner();
   }
 };
