@@ -11,7 +11,7 @@ document.body.appendChild(canvas);
 
 let bgReady, heroReady, monsterReady;
 let bgImage, heroImage, monsterImage;
-let bgSound, catchSound, gameOver;
+let bgSound, catchSound, gameOver, winnerSound;
 
 function loadImages() {
   bgImage = new Image();
@@ -54,6 +54,7 @@ function loadSounds() {
   bgSound = new sound("sounds/bg-sound.mp3");
   catchSound = new sound("sounds/eat.wav");
   gameOver = new sound("sounds/game-over.mp3");
+  winnerSound = new sound("sounds/winner.mp3");
 }
 
 /**
@@ -148,10 +149,10 @@ let update = function() {
   // Check if player and monster collided. Our images
   // are about 32 pixels big.
   if (
-    heroX <= monsterX + 32 &&
-    monsterX <= heroX + 32 &&
-    heroY <= monsterY + 32 &&
-    monsterY <= heroY + 32
+    heroX <= monsterX + 24 &&
+    monsterX <= heroX + 24 &&
+    heroY <= monsterY + 24 &&
+    monsterY <= heroY + 24
   ) {
     // Pick a new location for the monster.
     // Note: Change this to place the monster at a new, random location.
@@ -186,6 +187,37 @@ function counter() {
   }
 }
 
+function game_over() {
+  ctx.fillStyle = "red";
+  ctx.font = "30px Courier New";
+  ctx.fillText("Game over!", 170, 220);
+  ctx.fillText("Your caught " + monstersCaught + " sh*ts", 90, 250);
+  clearInterval(timer);
+  bgSound.stop();
+  catchSound.stop();
+  gameOver.play();
+  heroX = 0;
+  heroY = 0;
+  monsterReady = false;
+  heroReady = false;
+}
+
+function winner() {
+  ctx.fillStyle = "white";
+  ctx.font = "36px Courier New";
+  ctx.fillText("You win!", 180, 220);
+  ctx.font = "24px Courier New";
+  ctx.fillText("Your score is: " + timeLeft, 140, 250);
+  clearInterval(counter);
+  monsterX = 0;
+  monsterY = 0;
+  bgSound.stop();
+  catchSound.stop();
+  winnerSound.play();
+  monsterReady = false;
+  heroReady = false;
+}
+
 var render = function() {
   bgSound.play();
   if (bgReady) {
@@ -197,7 +229,6 @@ var render = function() {
   if (monsterReady) {
     ctx.drawImage(monsterImage, monsterX, monsterY);
   }
-  
   let timeLeft = count;
   ctx.fillStyle = "yellow";
   ctx.font = "24px Courier New";
@@ -210,28 +241,10 @@ var render = function() {
   ctx.font = "24px Courier New";
 
   if (finished == true) {
-    ctx.fillStyle = "red";
-    ctx.font = "30px Courier New";
-    ctx.fillText("Game over!", 170, 220);
-    bgSound.stop();
-    catchSound.stop();
-    gameOver.play();
-    ctx.fillText("Your caught " + monstersCaught + " sh*ts", 90, 250);
-    clearInterval(timer);
-    monsterReady = false;
-    heroReady = false;
+    game_over();
   }
-  if (monstersCaught === 10) {
-    finished == true;
-    ctx.fillStyle = "white";
-    ctx.font = "36px Courier New";
-    ctx.fillText("You win!", 180, 220);
-    ctx.font = "24px Courier New";
-    ctx.fillText("Your score is: " + count, 140, 250);
-    clearInterval(timer);
-    // setInterval(counter, 100000);
-    monsterReady = false;
-    heroReady = false;
+  else if (monstersCaught === 5) {
+    winner();
   }
 };
 
