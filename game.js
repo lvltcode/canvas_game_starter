@@ -243,7 +243,7 @@ var render = function() {
   if (finished == true) {
     game_over();
   }
-  else if (monstersCaught === 5) {
+  else if (monstersCaught === 10) {
     winner();
   }
 };
