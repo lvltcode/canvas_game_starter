@@ -36,7 +36,7 @@ This code was reviewed by @username and @otherusername.
 ## Optional User Stories
 
 - [x] Custom styling: the developer has replaced the images for the main character, monster, and background with something of her choice.  
-- [ ] The user cannot move her character off the screen. 
+- [x] The user cannot move her character off the screen. 
 - [ ] The user sees a few different types of monster each time a new monster is spawned. 
 - [x] The monster moves around on its own each frame, and the user must chase it. 
 - [ ] The map has "obstacles", such as trees, which block the user from moving through the space occupied by the obstacle. 
@@ -48,6 +48,7 @@ This code was reviewed by @username and @otherusername.
 The following **additional** features are implemented:
 
 - [x] The monsters move randomly and harder to catch.
+- [x] The monsters move randomly but inside the screen.
 
 ## Time Spent and Lessons Learned
 
