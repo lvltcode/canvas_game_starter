@@ -11,7 +11,7 @@ document.body.appendChild(canvas);
 
 let bgReady, heroReady, monsterReady;
 let bgImage, heroImage, monsterImage;
-let bgSound, catchSound, gameOver, winnerSound;
+let bgSound, catchSound, gameOver, winnerSound, walkSound;
 
 function loadImages() {
   bgImage = new Image();
@@ -55,6 +55,7 @@ function loadSounds() {
   catchSound = new sound("sounds/eat.wav");
   gameOver = new sound("sounds/game-over.mp3");
   winnerSound = new sound("sounds/winner.mp3");
+  walkSound = new sound("sounds/walk.wav");
 }
 
 /**
@@ -117,18 +118,22 @@ let update = function() {
   if (38 in keysDown) {
     // Player is holding up key
     heroY -= 5;
+    walkSound.play();
   }
   if (40 in keysDown) {
     // Player is holding down key
     heroY += 5;
+    walkSound.play();
   }
   if (37 in keysDown) {
     // Player is holding left key
     heroX -= 5;
+    walkSound.play();
   }
   if (39 in keysDown) {
     // Player is holding right key
     heroX += 5;
+    walkSound.play();
   }
 
   heroX = Math.min(canvas.width - 32, heroX);
@@ -158,7 +163,6 @@ let update = function() {
     // Note: Change this to place the monster at a new, random location.
     ++monstersCaught;
     catchSound.play();
-    // catchSound.stop();
     reset();
   }
 };
@@ -195,6 +199,7 @@ function game_over() {
   clearInterval(timer);
   bgSound.stop();
   catchSound.stop();
+  walkSound.stop();
   gameOver.play();
   heroX = 0;
   heroY = 0;
@@ -209,6 +214,7 @@ function winner() {
   ctx.font = "24px Courier New";
   ctx.fillText("Your score is: " + count, 140, 250);
   clearInterval(timer);
+  walkSound.stop();
   bgSound.stop();
   catchSound.stop();
   winnerSound.play();
