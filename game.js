@@ -14,6 +14,7 @@ let bgImage, heroImage, monsterImage;
 
 function loadImages() {
   bgImage = new Image();
+  // mySound = new sound("bounce.mp3");
   bgImage.onload = function () {
     // show the background image
     bgReady = true;
@@ -137,7 +138,7 @@ let update = function () {
 /**
  * This function, render, runs as often as possible.
  */
-let count = 20;
+let count = 15;
 let finished = false;
 // timer interval is every second (1000 = 1s)
 let timer = setInterval(counter, 1000);
@@ -173,17 +174,24 @@ var render = function () {
   let timeLeft = count;
   ctx.fillStyle = 'yellow';
   ctx.font = "24px Courier New";
-  ctx.fillText("Monsters caught: " + monstersCaught, canvas.width/2-20, canvas.height-20);
+  ctx.fillText("Monsters caught: " + monstersCaught, canvas.width/2-30, canvas.height-20);
   ctx.fillText("Time: " + timeLeft, 20, canvas.height-20);
-  if(finished==true){
-    ctx.fillText("Game over!", 200, 220);
-  }
+  ctx.font = "24px Courier New";
   
+  if(finished==true){
+    ctx.fillStyle = 'red';
+    ctx.font = "30px Courier New";
+    ctx.fillText("Game over!", 170, 220);
+    ctx.fillText("Your caught " + monstersCaught + " sh*ts", 90, 250);
+    clearInterval(timer);
+  }
   if(monstersCaught === 10){
     finished == true
     ctx.fillStyle = 'white';
     ctx.font = "36px Courier New";
     ctx.fillText("You win!", 180, 220);
+    ctx.font = "24px Courier New";
+    ctx.fillText("Your score is: " + count, 140, 250);
     clearInterval(timer);
     // setInterval(counter, 100000);
     monsterReady = false;
