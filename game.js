@@ -218,6 +218,8 @@ var render = function() {
     gameOver.play();
     ctx.fillText("Your caught " + monstersCaught + " sh*ts", 90, 250);
     clearInterval(timer);
+    monsterReady = false;
+    heroReady = false;
   }
   if (monstersCaught === 10) {
     finished == true;
