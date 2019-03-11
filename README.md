@@ -22,7 +22,7 @@ This code was reviewed by @Erik and @Victor.
 
 
 ## Required User Stories
-- [ ] I have at least three code reviews from others.
+- [x] I have at least three code reviews from others.
 - [x] The user can move their character with the arrow keys. 
 - [x] The user can see a monster.
 - [x] The monster is placed at a random location within the game boundaries.
@@ -31,7 +31,7 @@ This code was reviewed by @Erik and @Victor.
 - [x] The user can see the numbers of monsters she has caught. Every time she catches a monster, the number should increment by one. 
 - [x] The game ends when the user has caught 20 monsters. The total time elapsed is displayed upon game completion, in seconds.
 - [x] The user can access this game from the internet (e.g. using Netlify).
-- [ ] The code has been reviewed by at least one other person, using Pull Requests on GitHub.
+- [x] The code has been reviewed by at least one other person, using Pull Requests on GitHub.
 
 ## Optional User Stories
 
