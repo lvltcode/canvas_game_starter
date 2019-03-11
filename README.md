@@ -15,10 +15,10 @@ Here's a walkthrough of implemented user stories.
 
 ## Code Reviews
 
-This code was reviewed by @username and @otherusername. 
+This code was reviewed by @Erik and @Victor. 
 
-* [Link to PR #1](https://github.com/lvltcode/canvas_game_starter/pull/1#issuecomment-471316617) - reviewed by Erik
-* [Link to PR #2](#) - reviewed by @otherusername.   
+* [Link to PR #1](https://github.com/lvltcode/canvas_game_starter/pull/1#issuecomment-471316617) - reviewed by @Erik
+* [Link to PR #2](https://github.com/lvltcode/canvas_game_starter/pull/1#issue-259767124) - reviewed by @Victor   
 
 
 ## Required User Stories
