@@ -17,8 +17,8 @@ Here's a walkthrough of implemented user stories.
 
 This code was reviewed by @username and @otherusername. 
 
-* [Link to PR #X](#) - reviewed by Erik
-* [Link to PR #Y](#) - reviewed by @otherusername.   
+* [Link to PR #1](https://github.com/lvltcode/canvas_game_starter/pull/1#issuecomment-471316617) - reviewed by Erik
+* [Link to PR #2](#) - reviewed by @otherusername.   
 
 
 ## Required User Stories
