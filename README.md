@@ -1,4 +1,4 @@
-# CoderSchool FTW - * the Monster Hunter *
+# The Monster Hunter
 
 Created with love by: lvltcode - link Demo - https://monster-chasing-lvlcode.netlify.com/
   
